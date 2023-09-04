@@ -1,0 +1,14 @@
+token pass 
+localhost:5000/manager/employees-in-it-with-location-a?department=IT&location=A
+localhost:5000/manager/employees-in-sales?department=Sales&firstName=-1&lastName=-1
+localhost:5000/manager/64f5bbf0d0e1bbdb0329c9f2 ==>delete
+localhost:5000/manager/64f5bbf0d0e1bbdb0329c9f2 ==>update
+localhost:5000/manager/departments==>get-all list
+localhost:5000/manager/64f5bcb1e7c5383897b40a38 ==>get byid
+localhost:5000/manager/departments ==>Added manager after login
+
+
+
+
+localhost:5000/employee/login 
+localhost:8000/auth/register
