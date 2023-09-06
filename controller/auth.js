@@ -29,17 +29,18 @@ router.post('/signup', async (req, res) => {
 // Login route
 router.post('/login', async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email } = req.body;
     const employee = await Employee.findOne({ email });
     if (!employee) {
       return res.status(401).json({ message: 'Authentication failed' });
     }
-    const isPasswordValid = await bcrypt.compare(password, employee.password);
+    const isPasswordValid = await bcrypt.compare(req.body.password, employee.password);
     if (!isPasswordValid) {
       return res.status(401).json({ message: 'Authentication failed' });
     }
     const token = jwt.sign({ email: employee.email, _id: employee._id }, process.env.JWT_SECRET,{expiresIn:process.env.JWT_EXP_TIME});
-    res.status(200).json({ token });
+    const {password, ...other}=employee._doc;
+    res.status(200).json({ data:other,token });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

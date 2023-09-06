@@ -11,4 +11,4 @@ localhost:5000/manager/departments ==>Added manager after login
 
 
 localhost:5000/employee/login 
-localhost:8000/auth/register
+localhost:5000/auth/register
