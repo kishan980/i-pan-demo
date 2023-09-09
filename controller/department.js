@@ -68,7 +68,9 @@ router.delete('/:id', async (req, res) => {
 });
 router.patch('/:id', async (req, res) => {
   try {
-    const updateData = await Department.findByIdAndUpdate({_id:req.params.id},req.body)
+    const updateData = await Department.findByIdAndUpdate(  req.params.id,
+      { $set: req.body },
+      { new: true })
     res.status(201).json({ message: 'Department  updated', data:updateData});
   } catch (error) {
     res.status(500).json({ error: error.message });
